@@ -64,6 +64,7 @@
             padding: 0.75rem 2rem !important;
             border-radius: 9999px !important;
             font-size: 1.125rem !important;
+            text-transform: uppercase !important;
             transition: all 200ms ease-in-out !important;
             border: none !important;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
@@ -104,39 +105,272 @@
         .animation-delay-1800 { animation-delay: 1.8s; }
         .animation-delay-2000 { animation-delay: 2s; }
         
-        /* New custom styles for the testimonial section */
+        /* Enhanced Testimonial Styles */
         .testimonial-carousel {
             position: relative;
             overflow: hidden;
             width: 100%;
         }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4DABCC, #17494D, #4DABCC);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.08) 100%);
+        }
+
+        .testimonial-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            opacity: 0.3;
+        }
+
+        .testimonial-avatar {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 1rem auto 1.5rem;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-cover: cover;
+            border: 3px solid #4DABCC;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, #4DABCC 0%, transparent 70%);
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.2; }
+        }
+
+        .testimonial-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            text-align: center;
+            font-style: italic;
+            position: relative;
+            font-family: 'Karla', sans-serif;
+        }
+
+        .testimonial-footer {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1rem;
+        }
+
+        .testimonial-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .testimonial-role {
+            font-size: 0.875rem;
+            color: #4DABCC;
+            margin-bottom: 0.75rem;
+            font-family: 'Karla', sans-serif;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 0.25rem;
+        }
+
+        .star {
+            color: #FDBA74;
+            font-size: 1.25rem;
+            transition: transform 0.2s;
+        }
+
+        .star:hover {
+            transform: scale(1.2);
+        }
+
+        /* Enhanced Carousel Navigation */
+        .carousel-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            color: #4DABCC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(77,171,204,0.2);
+            border-color: #4DABCC;
+            transform: scale(1.1);
+            color: white;
+        }
+
+        .carousel-btn:active {
+            transform: scale(0.95);
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
         .testimonial-track {
             display: flex;
-            transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             will-change: transform;
         }
+
         .testimonial-slide {
             flex-shrink: 0;
             width: 100%;
-            padding: 0 1rem; /* Added for spacing on mobile */
+            padding: 0 1rem;
+            opacity: 0.4;
+            transition: opacity 0.6s ease;
         }
+
+        .testimonial-slide.active {
+            opacity: 1;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .dot:hover {
+            background: rgba(255,255,255,0.5);
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background: #4DABCC;
+            width: 32px;
+            border-radius: 20px;
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        /* Responsive adjustments for testimonials */
         @media (min-width: 768px) {
             .testimonial-slide {
                 width: 33.333%;
                 padding: 0 1rem;
             }
+            
+            .testimonial-card {
+                padding: 2.5rem;
+            }
+            
             .testimonial-track {
                 padding: 0 10%;
             }
         }
+
+        @media (max-width: 767px) {
+            .testimonial-text {
+                font-size: 1rem;
+            }
+            
+            .carousel-nav {
+                gap: 0.5rem;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Touch/swipe support for mobile */
+        @media (pointer: coarse) {
+            .testimonial-carousel {
+                cursor: grab;
+            }
+            
+            .testimonial-carousel:active {
+                cursor: grabbing;
+            }
+        }
+
+        /* Legacy carousel styles (kept for compatibility) */
         .carousel-button {
             @apply p-4 rounded-full bg-white bg-opacity-70 shadow-lg transition-all hover:bg-opacity-100 hover:scale-110;
-        }
-        .dot {
-            @apply w-3 h-3 rounded-full bg-white bg-opacity-40 mx-1 cursor-pointer transition-colors duration-300;
-        }
-        .dot.active {
-            @apply bg-opacity-100;
         }
     </style>
     <script>
@@ -253,94 +487,179 @@
     </section>
     
     <!-- Testimonials Section -->
-    <section class="py-24 px-6 md:px-12 bg-[#17494D] text-white">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl md:text-5xl font-black mb-16 text-center animate-fadeIn font-lato">HEAR FROM OUR GRADUATES</h2>
-            <div class="testimonial-carousel relative">
-                <div class="testimonial-track" id="testimonial-track">
-                    <!-- Testimonial 1 -->
-                    <div class="testimonial-slide px-4">
-                        <div class="p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform h-full flex flex-col justify-between bg-opacity-10 text-white border border-gray-500 font-karla">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=A.R" alt="Profile Picture of Alex R." class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+<section class="py-24 px-6 md:px-12 bg-[#17494D] text-white relative overflow-hidden">
+    <!-- Animated background gradient -->
+    <div class="absolute inset-0 bg-gradient-to-br from-[#17494D] via-[#1a5158] to-[#17494D] opacity-50"></div>
+    
+    <div class="container mx-auto max-w-6xl relative z-10">
+        <h2 class="text-3xl md:text-5xl font-black mb-16 text-center animate-fadeIn font-lato">HEAR FROM OUR GRADUATES</h2>
+        
+        <!-- Enhanced Testimonial Carousel -->
+        <div class="testimonial-carousel relative">
+            <div class="testimonial-track" id="testimonial-track">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide px-4">
+                    <div class="testimonial-card h-full">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg class="w-8 h-8 text-[#4DABCC] opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
                             </div>
-                            <p class="text-lg italic text-gray-200 mb-6 flex-grow text-center">"This training changed everything for me. I now have the confidence and tools to truly impact people's lives in a meaningful way. It's more than a course; it's a complete transformation."</p>
-                            <div class="text-center">
-                                <p class="mt-4 font-bold text-lg text-white font-lato">Alex R.</p>
-                                <p class="text-sm text-gray-400">Certified Life Coach</p>
+                            <div class="testimonial-avatar">
+                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=A.R" alt="Alex R." class="avatar-img">
+                                <div class="avatar-glow"></div>
                             </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial 2 -->
-                    <div class="testimonial-slide px-4">
-                        <div class="p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform h-full flex flex-col justify-between bg-opacity-10 text-white border border-gray-500 font-karla">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=M.G" alt="Profile Picture of Maria G." class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
-                            </div>
-                            <p class="text-lg italic text-gray-200 mb-6 flex-grow text-center">"The curriculum is unmatched. It's not just theory, but real, actionable strategies that you can use immediately. I've seen a noticeable improvement in my client retention and results."</p>
-                            <div class="text-center">
-                                <p class="mt-4 font-bold text-lg text-white font-lato">Maria G.</p>
-                                <p class="text-sm text-gray-400">Corporate Trainer</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Testimonial 3 -->
-                    <div class="testimonial-slide px-4">
-                        <div class="p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform h-full flex flex-col justify-between bg-opacity-10 text-white border border-gray-500 font-karla">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=J.P" alt="Profile Picture of John P." class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
-                            </div>
-                            <p class="text-lg italic text-gray-200 mb-6 flex-grow text-center">"The live sessions and community support were invaluable. I felt supported every step of the way, and the feedback from mentors was a game changer for my practice."</p>
-                            <div class="text-center">
-                                <p class="mt-4 font-bold text-lg text-white font-lato">John P.</p>
-                                <p class="text-sm text-gray-400">Business Consultant</p>
+                            <p class="testimonial-text">"This training changed everything for me. I now have the confidence and tools to truly impact people's lives in a meaningful way. It's more than a course; it's a complete transformation."</p>
+                            <div class="testimonial-footer">
+                                <p class="testimonial-name">Alex R.</p>
+                                <p class="testimonial-role">Certified Life Coach</p>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Testimonial 4 -->
-                    <div class="testimonial-slide px-4">
-                        <div class="p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform h-full flex flex-col justify-between bg-opacity-10 text-white border border-gray-500 font-karla">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=S.W" alt="Profile Picture of Sarah W." class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide px-4">
+                    <div class="testimonial-card h-full">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg class="w-8 h-8 text-[#4DABCC] opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
                             </div>
-                            <p class="text-lg italic text-gray-200 mb-6 flex-grow text-center">"I never thought I could make a career out of helping people, but the business and marketing support from RMT gave me the clear, actionable path I needed to succeed."</p>
-                            <div class="text-center">
-                                <p class="mt-4 font-bold text-lg text-white font-lato">Sarah W.</p>
-                                <p class="text-sm text-gray-400">Entrepreneur & Coach</p>
+                            <div class="testimonial-avatar">
+                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=M.G" alt="Maria G." class="avatar-img">
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <p class="testimonial-text">"The curriculum is unmatched. It's not just theory, but real, actionable strategies that you can use immediately. I've seen a noticeable improvement in my client retention and results."</p>
+                            <div class="testimonial-footer">
+                                <p class="testimonial-name">Maria G.</p>
+                                <p class="testimonial-role">Corporate Trainer</p>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Testimonial 5 -->
-                    <div class="testimonial-slide px-4">
-                        <div class="p-8 rounded-2xl shadow-xl transition-all duration-300 ease-in-out transform h-full flex flex-col justify-between bg-opacity-10 text-white border border-gray-500 font-karla">
-                            <div class="flex flex-col items-center text-center">
-                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=M.F" alt="Profile Picture of Mark F." class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide px-4">
+                    <div class="testimonial-card h-full">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg class="w-8 h-8 text-[#4DABCC] opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
                             </div>
-                            <p class="text-lg italic text-gray-200 mb-6 flex-grow text-center">"The 6 Human Needs model alone is worth the price of admission. It has completely changed how I interact with my team and my family, leading to healthier, more productive relationships."</p>
-                            <div class="text-center">
-                                <p class="mt-4 font-bold text-lg text-white font-lato">Mark F.</p>
-                                <p class="text-sm text-gray-400">Corporate Executive</p>
+                            <div class="testimonial-avatar">
+                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=J.P" alt="John P." class="avatar-img">
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <p class="testimonial-text">"The live sessions and community support were invaluable. I felt supported every step of the way, and the feedback from mentors was a game changer for my practice."</p>
+                            <div class="testimonial-footer">
+                                <p class="testimonial-name">John P.</p>
+                                <p class="testimonial-role">Business Consultant</p>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-slide px-4">
+                    <div class="testimonial-card h-full">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg class="w-8 h-8 text-[#4DABCC] opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-avatar">
+                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=S.W" alt="Sarah W." class="avatar-img">
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <p class="testimonial-text">"I never thought I could make a career out of helping people, but the business and marketing support from RMT gave me the clear, actionable path I needed to succeed."</p>
+                            <div class="testimonial-footer">
+                                <p class="testimonial-name">Sarah W.</p>
+                                <p class="testimonial-role">Entrepreneur & Coach</p>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-slide px-4">
+                    <div class="testimonial-card h-full">
+                        <div class="testimonial-content">
+                            <div class="quote-icon">
+                                <svg class="w-8 h-8 text-[#4DABCC] opacity-50" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                </svg>
+                            </div>
+                            <div class="testimonial-avatar">
+                                <img src="https://placehold.co/100x100/4DABCC/FFFFFF?text=M.F" alt="Mark F." class="avatar-img">
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <p class="testimonial-text">"The 6 Human Needs model alone is worth the price of admission. It has completely changed how I interact with my team and my family, leading to healthier, more productive relationships."</p>
+                            <div class="testimonial-footer">
+                                <p class="testimonial-name">Mark F.</p>
+                                <p class="testimonial-role">Corporate Executive</p>
+                                <div class="rating">
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                    <span class="star">★</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-8 flex items-center justify-center space-x-4">
-                <button class="carousel-button text-primary-blue" onclick="moveSlide(-1)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            
+            <!-- Navigation Controls -->
+            <div class="carousel-nav">
+                <button class="carousel-btn carousel-btn-prev" onclick="moveSlide(-1)" aria-label="Previous testimonial">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12 15.75 4.5" />
                     </svg>
                 </button>
-                <div id="dot-container" class="flex"></div>
-                <button class="carousel-button text-primary-blue" onclick="moveSlide(1)">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <div id="dot-container" class="carousel-dots"></div>
+                <button class="carousel-btn carousel-btn-next" onclick="moveSlide(1)" aria-label="Next testimonial">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                     </svg>
                 </button>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- What Makes RMT Unique Section -->
     <section class="py-24 px-6 md:px-12 bg-white font-karla">
         <div class="container mx-auto max-w-6xl">
