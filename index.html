@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+   <style>
         /* CSS for smooth animations on scroll */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -53,6 +53,36 @@
         .btn-primary:active {
             @apply scale-100;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.08), inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Special styling for specific buttons to match header button */
+        section.relative.pt-32 .btn-primary,
+        section.py-24 a.btn-primary[href="#book-call"] {
+            background-color: #17494D !important;
+            color: white !important;
+            font-weight: bold !important;
+            padding: 0.75rem 2rem !important;
+            border-radius: 9999px !important;
+            font-size: 1.125rem !important;
+            transition: all 200ms ease-in-out !important;
+            border: none !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+            cursor: pointer !important;
+            display: inline-block !important;
+        }
+        
+        section.relative.pt-32 .btn-primary:hover,
+        section.py-24 a.btn-primary[href="#book-call"]:hover {
+            background-color: #0f3538 !important;
+            transform: scale(1.05) !important;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2) !important;
+        }
+        
+        section.relative.pt-32 .btn-primary:active,
+        section.py-24 a.btn-primary[href="#book-call"]:active {
+            background-color: #0a2426 !important;
+            transform: scale(0.98) !important;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.2) !important;
         }
 
         .btn-secondary {
